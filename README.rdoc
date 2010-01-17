@@ -99,7 +99,7 @@ Most factory attributes can be added using static values that are evaluated when
 
 == Dependent Attributes
 
-Attributes can be based on the values of other attributes using the proxy that is yieled to lazy attribute blocks:
+Attributes can be based on the values of other attributes using the proxy that is yielded to lazy attribute blocks:
 
   Factory.define :user do |u|
     u.first_name 'Joe'
