@@ -72,7 +72,7 @@ You can use the Factory method as a shortcut for the default build strategy:
   # Same as Factory.create :user:
   user = Factory(:user)
 
-The default strategy can be overriden:
+The default strategy can be overridden:
 
   # Now same as Factory.build(:user)
   Factory.define :user, :default_strategy => :build do |u|
