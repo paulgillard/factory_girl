@@ -6,11 +6,19 @@ class Factory
       end
 
       def get(attribute)
-        @hash[attribute]
+        if @instance.respond_to? attribute
+          @hash[attribute]
+        else
+          @locals[attribute]
+        end
       end
 
       def set(attribute, value)
-        @hash[attribute] = value
+        if @instance.respond_to? :"#{attribute}="
+          @hash[attribute] = value
+        else
+          @locals[attribute] = value
+        end
       end
 
       def result

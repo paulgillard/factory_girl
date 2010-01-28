@@ -6,11 +6,19 @@ class Factory
       end
 
       def get(attribute)
-        @instance.send(attribute)
+        if @instance.respond_to? attribute
+          @instance.send(attribute)
+        else
+          @locals[attribute]
+        end
       end
 
       def set(attribute, value)
-        @instance.send(:"#{attribute}=", value)
+        if @instance.respond_to? :"#{attribute}="
+          @instance.send(:"#{attribute}=", value)
+        else
+          @locals[attribute] = value
+        end
       end
 
       def associate(name, factory, attributes)
